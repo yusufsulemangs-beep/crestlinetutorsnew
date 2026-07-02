@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crestline Tutors | Expert Online Tutoring for KS2 & KS3</title>
+  <meta name="description" content="One-to-one online tutoring in Maths, English, Science, French, 11+ and SATs. Top-scoring grammar school student with proven results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #f7f5f0; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; background: #f7f5f0; border-bottom: 1px solid #e0ddd6; position: sticky; top: 0; z-index: 10; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #1a1a1a; text-decoration: none; }
+    .nav-logo span { color: #1d4ed8; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: #555; text-decoration: none; }
+    .nav-cta { background: #1d4ed8; color: #fff !important; padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+
+    /* PAGE SYSTEM */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* HERO */
+    .hero { padding: 5rem 2rem 4rem; max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #1d4ed8; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: 46px; font-weight: 600; line-height: 1.1; color: #1a1a1a; margin-bottom: 1.25rem; letter-spacing: -1px; }
+    .hero h1 em { font-style: italic; font-weight: 300; color: #1d4ed8; }
+    .hero-sub { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-primary { background: #1d4ed8; color: #fff; padding: 11px 22px; border-radius: 7px; font-size: 14px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; display: inline-block; }
+    .btn-secondary { background: transparent; color: #1d4ed8; padding: 11px 22px; border-radius: 7px; font-size: 14px; font-weight: 500; border: 1.5px solid #1d4ed8; cursor: pointer; text-decoration: none; display: inline-block; }
+    .hero-card { background: #fff; border-radius: 14px; padding: 1.5rem; border: 1px solid #e8e4dc; }
+    .hero-card-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .stat-row { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
+    .stat-num { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 600; color: #1d4ed8; line-height: 1; }
+    .stat-label { font-size: 12px; color: #888; margin-top: 3px; }
+    .placement-list { display: flex; flex-direction: column; gap: 6px; }
+    .placement { background: #eff6ff; border-radius: 7px; padding: 9px 12px; font-size: 12px; color: #1d4ed8; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+    .placement::before { content: '✓'; font-size: 11px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: #1d4ed8; padding: 1rem 2rem; }
+    .trust-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .trust-item { text-align: center; }
+    .trust-num { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: #fff; }
+    .trust-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+    /* SECTIONS */
+    .section-white { background: #fff; padding: 4rem 2rem; border-top: 1px solid #e0ddd6; border-bottom: 1px solid #e0ddd6; }
+    .section-cream { padding: 4rem 2rem; background: #f7f5f0; }
+    .section-dark { background: #1a1a1a; padding: 4rem 2rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #1d4ed8; margin-bottom: 0.5rem; font-weight: 500; }
+    .section-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 600; color: #1a1a1a; margin-bottom: 2.5rem; letter-spacing: -0.5px; }
+    .section-body { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 2rem; max-width: 680px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #60a5fa; margin-bottom: 0.5rem; font-weight: 500; }
+    .about-title { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600; color: #fff; margin-bottom: 1rem; letter-spacing: -0.5px; }
+    .about-body { font-size: 14px; color: #aaa; line-height: 1.8; }
+    .credential { background: #2a2a2a; border-radius: 9px; padding: 1rem 1.25rem; border: 1px solid #333; margin-bottom: 10px; }
+    .credential-title { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 2px; }
+    .credential-sub { font-size: 12px; color: #777; }
+
+    /* SUBJECTS */
+    .subjects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .subject-card { background: #f7f5f0; border-radius: 10px; padding: 1.25rem; border: 1px solid #e8e4dc; }
+    .subject-icon { font-size: 22px; margin-bottom: 10px; }
+    .subject-name { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
+    .subject-desc { font-size: 12px; color: #777; line-height: 1.5; }
+
+    /* HOW IT WORKS */
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; }
+    .step { text-align: center; padding: 1.25rem 0.75rem; }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: #1d4ed8; color: #fff; font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step-num.gold { background: #f59e0b; }
+    .step-title { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 5px; }
+    .step-desc { font-size: 11px; color: #777; line-height: 1.6; }
+
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .why-card { background: #fff; border-radius: 10px; padding: 1.25rem 1.5rem; border: 1px solid #e8e4dc; display: flex; gap: 1rem; align-items: flex-start; }
+    .why-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .why-title { font-size: 14px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
+    .why-desc { font-size: 12px; color: #777; line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-card { background: #fff; border-radius: 14px; padding: 2.5rem; border: 1px solid #e8e4dc; max-width: 480px; margin: 0 auto 2rem; text-align: center; }
+    .pricing-card .price-big { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 600; color: #1d4ed8; line-height: 1; }
+    .pricing-card .price-sub { font-size: 14px; color: #888; margin-bottom: 1.5rem; }
+    .pricing-card .price-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+    .pricing-card .price-features li { font-size: 14px; color: #555; display: flex; gap: 8px; align-items: flex-start; }
+    .pricing-card .price-features li::before { content: '✓'; color: #1d4ed8; font-weight: 600; flex-shrink: 0; }
+    .free-banner { background: #eff6ff; border: 1.5px solid #1d4ed8; border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .free-banner-icon { font-size: 28px; flex-shrink: 0; }
+    .free-banner-title { font-size: 15px; font-weight: 500; color: #1d4ed8; margin-bottom: 3px; }
+    .free-banner-desc { font-size: 13px; color: #555; line-height: 1.5; }
+    .group-banner { background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .group-banner-icon { font-size: 28px; flex-shrink: 0; }
+    .group-banner-title { font-size: 15px; font-weight: 500; color: #15803d; margin-bottom: 3px; }
+    .group-banner-desc { font-size: 13px; color: #555; line-height: 1.5; }
+
+    /* CTA BOXES */
+    .cta-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 700px; margin: 0 auto; }
+    .cta-box { background: #fff; border-radius: 12px; padding: 1.5rem; border: 1px solid #e8e4dc; text-align: center; }
+    .cta-box.blue { background: #1d4ed8; border-color: #1d4ed8; }
+    .cta-box-icon { font-size: 28px; margin-bottom: 0.75rem; }
+    .cta-box-title { font-size: 16px; font-weight: 500; color: #1a1a1a; margin-bottom: 6px; }
+    .cta-box.blue .cta-box-title { color: #fff; }
+    .cta-box-desc { font-size: 13px; color: #777; line-height: 1.6; margin-bottom: 1rem; }
+    .cta-box.blue .cta-box-desc { color: rgba(255,255,255,0.7); }
+    .cta-box-btn { display: inline-block; padding: 9px 20px; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; border: 1.5px solid #1d4ed8; color: #1d4ed8; background: transparent; cursor: pointer; }
+    .cta-box.blue .cta-box-btn { background: #fff; color: #1d4ed8; border-color: #fff; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .testimonial { background: #f7f5f0; border-radius: 12px; padding: 1.5rem; border: 1px solid #e8e4dc; }
+    .stars { color: #f59e0b; font-size: 13px; margin-bottom: 0.75rem; }
+    .testimonial-text { font-size: 13px; color: #444; line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { font-size: 12px; font-weight: 500; color: #1d4ed8; }
+    .testimonial-role { font-size: 11px; color: #999; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid #e8e4dc; padding: 1.1rem 0; cursor: pointer; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 14px; font-weight: 500; color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq-arrow { color: #1d4ed8; font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { font-size: 13px; color: #666; line-height: 1.7; margin-top: 0.6rem; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    /* RESOURCES PAGE */
+    .resources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .resource-card { background: #fff; border-radius: 12px; padding: 1.5rem; border: 1px solid #e8e4dc; position: relative; }
+    .coming-soon-badge { position: absolute; top: 12px; right: 12px; background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .resource-icon { font-size: 28px; margin-bottom: 0.75rem; }
+    .resource-title { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 5px; }
+    .resource-desc { font-size: 13px; color: #777; line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: #1a1a1a; padding: 2rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+    .footer-logo span { color: #60a5fa; }
+    .footer-desc { font-size: 12px; color: #666; line-height: 1.6; }
+    .footer-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #555; font-weight: 500; margin-bottom: 0.75rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .footer-links a { font-size: 13px; color: #888; text-decoration: none; cursor: pointer; }
+    .footer-bottom { max-width: 900px; margin: 1.5rem auto 0; padding-top: 1rem; border-top: 1px solid #2a2a2a; font-size: 11px; color: #555; text-align: center; }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.25rem 2rem; }
+      .hero h1 { font-size: 34px; }
+      .subjects-grid, .testimonials-grid, .why-grid, .about-grid, .cta-boxes, .resources-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo" onclick="showPage('main'); return false;">Crestline<span>Tutors</span></a>
+    <div class="nav-links">
+      <a href="#about" onclick="showPage('main')">About</a>
+      <a href="#subjects" onclick="showPage('main')">Subjects</a>
+      <a href="#pricing" onclick="showPage('main')">Pricing</a>
+      <a href="#faq" onclick="showPage('main')">FAQ</a>
+      <a href="#" onclick="showPage('resources'); return false;">Resources & Mock Tests</a>
+      <a href="#signup" onclick="showPage('main')" class="nav-cta">Book Free Session</a>
+    </div>
+  </nav>
+
+  <!-- ======== MAIN PAGE ======== -->
+  <div id="page-main" class="page active">
+
+    <!-- TRANSPARENCY BANNER -->
+    <div style="background:#fefce8; border-bottom: 1.5px solid #fbbf24; padding: 0.75rem 2rem; text-align:center;">
+      <span style="font-size:13px; color:#92400e; font-weight:500;">👋 Crestline Tutors is run by Yusuf, a 13-year-old student at a prestigious grammar school. Parents are encouraged to read the <a href="#about" style="color:#92400e; text-decoration:underline;">About section</a> before booking.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <section style="background:#f7f5f0;">
+      <div class="hero">
+        <div>
+          <p class="hero-tag">KS2 · KS3 · 11+ · SATs</p>
+          <h1>Tutoring that gets <em>results.</em></h1>
+          <p class="hero-sub">One-to-one online sessions in Maths, English, Science, French, 11+, and SATs — delivered by Yusuf, a 13-year-old at a prestigious grammar school who achieved the top SATs score in his year group. He's been through these exams recently, and that makes all the difference. Your first session is completely free.</p>
+          <div class="hero-btns">
+            <a href="#signup" class="btn-primary">Book your free session</a>
+            <a href="#about" class="btn-secondary">About Yusuf</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Track record</p>
+          <div class="stat-row">
+            <div class="stat"><div class="stat-num">Top</div><div class="stat-label">SATs score in year group</div></div>
+            <div class="stat"><div class="stat-num">6</div><div class="stat-label">subjects covered</div></div>
+          </div>
+          <div class="placement-list">
+            <div class="placement">Wallington High School for Girls</div>
+            <div class="placement">Whitgift School</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TRUST BAR -->
+    <div class="trust-bar">
+      <div class="trust-inner">
+        <div class="trust-item"><div class="trust-num">6</div><div class="trust-label">Subjects taught</div></div>
+        <div class="trust-item"><div class="trust-num">#1</div><div class="trust-label">SATs score in year group</div></div>
+        <div class="trust-item"><div class="trust-num">2</div><div class="trust-label">Selective school placements</div></div>
+        <div class="trust-item"><div class="trust-num">FREE</div><div class="trust-label">First session, always</div></div>
+      </div>
+    </div>
+
+    <!-- 3. ABOUT -->
+    <section class="section-dark" id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div>
+            <p class="about-eyebrow">About Crestline</p>
+            <h2 class="about-title">I know what it takes — because I've just done it.</h2>
+            <p class="about-body">Crestline Tutors was founded by Yusuf, a 13-year-old student at one of the most prestigious grammar schools in the country. He achieved the highest SATs score in his year group and launched Crestline to help other students do the same.<br><br>He's not a distant adult tutor who vaguely remembers sitting these exams — he sat them very recently, knows exactly what the pressure feels like, and explains things in a way that genuinely lands with younger students. Parents who have worked with Crestline consistently say that Yusuf's age is a strength, not a limitation — their children open up more, ask more questions, and learn faster.<br><br>Every child Yusuf works with gets the same focus, patience, and preparation that took him to the top of his year group.</p>
+          </div>
+          <div>
+            <div class="credential"><div class="credential-title">Prestigious grammar school</div><div class="credential-sub">Founder · 13 years old · Year 8</div></div>
+            <div class="credential"><div class="credential-title">Highest SATs score in year group</div><div class="credential-sub">Top-percentile result, KS2</div></div>
+            <div class="credential"><div class="credential-title">Proven student outcomes</div><div class="credential-sub">Placements at Wallington High & Whitgift</div></div>
+            <div class="credential"><div class="credential-title">Active tutoring practice</div><div class="credential-sub">Listed on Fiverr, Superprof & MyPocketSkill</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SUBJECTS -->
+    <section class="section-white" id="subjects">
+      <div class="section-inner">
+        <p class="section-eyebrow">What I teach</p>
+        <h2 class="section-title">Six subjects, one tutor</h2>
+        <p class="section-body">Every child learns differently. That's why every Crestline session is built from scratch around your child — their year group, their weak spots, and their upcoming exams. No generic worksheets, no copy-paste lessons. Just focused, effective tutoring that moves the needle.</p>
+        <div class="subjects-grid">
+          <div class="subject-card"><div class="subject-icon">📐</div><div class="subject-name">Maths</div><div class="subject-desc">Arithmetic, problem-solving, and reasoning from Year 4 to Year 8. Strong emphasis on method and working clearly under exam conditions.</div></div>
+          <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">English</div><div class="subject-desc">Reading comprehension, creative writing, grammar, and vocabulary. Targeted at both KS2 SATs and KS3 assessments.</div></div>
+          <div class="subject-card"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-desc">Biology, Chemistry, and Physics for KS2 and KS3, explained clearly and linked directly to what comes up in tests.</div></div>
+          <div class="subject-card"><div class="subject-icon">🇫🇷</div><div class="subject-name">French</div><div class="subject-desc">Vocabulary, grammar, and speaking confidence for KS2–KS3. Practical, conversational, and exam-focused.</div></div>
+          <div class="subject-card"><div class="subject-icon">🏆</div><div class="subject-name">11+ Preparation</div><div class="subject-desc">Verbal and non-verbal reasoning, comprehension, maths, and full exam technique — built around selective school entry tests.</div></div>
+          <div class="subject-card"><div class="subject-icon">✏️</div><div class="subject-name">SATs</div><div class="subject-desc">KS2 Maths and English preparation built around the exact test format. Timing, technique, and targeted gap-filling.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HOW IT WORKS -->
+    <section class="section-cream">
+      <div class="section-inner">
+        <p class="section-eyebrow">The process</p>
+        <h2 class="section-title" style="margin-bottom:1rem;">How it works</h2>
+        <p class="section-body">From your first free assessment through to consistent progress — here's exactly what to expect when you work with Crestline.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-title">Book your free session</div><div class="step-desc">Fill in the sign-up form with your child's details and we'll confirm a time that works for you.</div></div>
+          <div class="step"><div class="step-num gold">★</div><div class="step-title">Free assessment</div><div class="step-desc">The first session is completely free. I work through questions with your child to map out exactly where they are and identify every gap.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-title">Tailored plan</div><div class="step-desc">Based on the assessment, I build a focused plan targeting the areas that will make the biggest difference.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-title">Regular sessions</div><div class="step-desc">Structured lessons, practice questions, and constant reinforcement — week by week progress your child can feel.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-title">See the results</div><div class="step-desc">Your child gains confidence, clarity, and real exam readiness — with progress you can actually measure.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHY CRESTLINE -->
+    <section class="section-white">
+      <div class="section-inner">
+        <p class="section-eyebrow">Why choose us</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">What sets Crestline apart</h2>
+        <div class="why-grid">
+          <div class="why-card"><div class="why-icon">🎓</div><div><div class="why-title">Recently sat the same exams</div><div class="why-desc">Top SATs score in year group at a prestigious grammar school — we know exactly what's tested and how to prepare for it.</div></div></div>
+          <div class="why-card"><div class="why-icon">🎯</div><div><div class="why-title">Targeted, not generic</div><div class="why-desc">Every session is built around your child's specific weak spots — not a one-size-fits-all curriculum pulled from a textbook.</div></div></div>
+          <div class="why-card"><div class="why-icon">💬</div><div><div class="why-title">Explains like a student, not a textbook</div><div class="why-desc">Children respond better to someone close to their age who explains things the way they actually need to hear them.</div></div></div>
+          <div class="why-card"><div class="why-icon">📈</div><div><div class="why-title">Proven track record</div><div class="why-desc">Students helped by Crestline have earned places at Wallington High School for Girls and Whitgift School.</div></div></div>
+          <div class="why-card"><div class="why-icon">💻</div><div><div class="why-title">Fully online, fully flexible</div><div class="why-desc">Sessions take place online — no commute, no stress. Evenings and weekends available to suit your family.</div></div></div>
+          <div class="why-card"><div class="why-icon">🎁</div><div><div class="why-title">First session always free</div><div class="why-desc">No pressure, no upfront commitment. The free assessment lets both sides decide if it's the right fit before any money changes hands.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PRICING -->
+    <section class="section-cream" id="pricing">
+      <div class="section-inner" style="text-align:center;">
+        <p class="section-eyebrow">Pricing</p>
+        <h2 class="section-title">Simple, honest pricing</h2>
+        <div class="free-banner">
+          <div class="free-banner-icon">🎁</div>
+          <div style="text-align:left;">
+            <div class="free-banner-title">Your first session is completely free</div>
+            <div class="free-banner-desc">Every new student starts with a free assessment — no strings attached. I use it to map your child's level and build a plan. Paid sessions only begin after that.</div>
+          </div>
+        </div>
+        <div class="pricing-card">
+          <div class="price-big">£14</div>
+          <div class="price-sub">per hour · one-to-one online session</div>
+          <ul class="price-features">
+            <li>Any subject — Maths, English, Science, French, 11+ or SATs</li>
+            <li>Fully tailored to your child's weak spots</li>
+            <li>Structured around your child's upcoming exams</li>
+            <li>Progress tracked and fed back after every session</li>
+            <li>Flexible scheduling — evenings and weekends available</li>
+          </ul>
+          <a href="https://forms.cloud.microsoft/r/SPXk2f6LH0" target="_blank" class="btn-primary" style="width:100%; display:block; text-align:center;">Register for first lesson ↗</a>
+        </div>
+        <div class="group-banner">
+          <div class="group-banner-icon">👥</div>
+          <div style="text-align:left;">
+            <div class="group-banner-title">Group sessions coming soon</div>
+            <div class="group-banner-desc">Small-group sessions at a reduced rate — perfect for siblings or friends preparing for the same exam. <a href="mailto:yusuf-crestlinetutors@outlook.com?subject=Group Sessions Interest" style="color:#15803d; font-weight:500;">Email us to register your interest.</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. BOOK / CALL CTA -->
+    <section class="section-white" id="signup">
+      <div class="section-inner">
+        <p class="section-eyebrow" style="text-align:center;">Get started</p>
+        <h2 class="section-title" style="text-align:center; margin-bottom:0.75rem;">Ready to begin?</h2>
+        <p style="text-align:center; font-size:15px; color:#666; margin-bottom:2rem;">Not sure yet? Book a free 20-minute call first. Ready to go? Register for your first lesson below.</p>
+        <div class="cta-boxes">
+          <div class="cta-box">
+            <div class="cta-box-icon">📞</div>
+            <div class="cta-box-title">Free 20-minute call</div>
+            <div class="cta-box-desc">Have a quick chat with Yusuf before committing to anything. Ask questions, discuss your child's needs, and see if it's the right fit.</div>
+            <a href="https://forms.cloud.microsoft/r/AnyYRjvJmZ" target="_blank" class="cta-box-btn">Book a call ↗</a>
+          </div>
+          <div class="cta-box blue">
+            <div class="cta-box-icon">✏️</div>
+            <div class="cta-box-title">Register for first lesson</div>
+            <div class="cta-box-desc">Ready to get started? Fill in the registration form and we'll confirm your free assessment session within 24 hours.</div>
+            <a href="https://forms.cloud.microsoft/r/SPXk2f6LH0" target="_blank" class="cta-box-btn">Register now ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS -->
+    <section class="section-cream">
+      <div class="section-inner">
+        <p class="section-eyebrow">What parents say</p>
+        <h2 class="section-title">Results speak for themselves</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Yusuf has a real gift for explaining things simply. My daughter went from dreading Maths to actually enjoying it. Her confidence has completely transformed."</p>
+            <div class="testimonial-author">Parent of Year 5 student</div>
+            <div class="testimonial-role">11+ preparation · Maths</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"My son got into Whitgift School. I genuinely believe the sessions with Crestline made the difference. He understood exactly what the examiners were looking for."</p>
+            <div class="testimonial-author">Parent of Year 6 student</div>
+            <div class="testimonial-role">11+ preparation · English</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Very professional, patient, and knowledgeable. Yusuf clearly remembers what it felt like to sit these tests — and that makes a huge difference to how he teaches."</p>
+            <div class="testimonial-author">Parent of Year 6 student</div>
+            <div class="testimonial-role">SATs · Maths & English</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="section-white" id="faq">
+      <div class="section-inner">
+        <p class="section-eyebrow">Questions</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Frequently asked questions</h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item"><div class="faq-q">Is the first session really free?<span class="faq-arrow">▾</span></div><div class="faq-a">Yes — completely. The first session is a free assessment where I work through questions with your child to map out their current level and identify weak spots. There's no obligation to continue and no payment required beforehand.</div></div>
+          <div class="faq-item"><div class="faq-q">Yusuf is 13 — should I be concerned?<span class="faq-arrow">▾</span></div><div class="faq-a">It's a fair question and we'd rather you asked it than wondered. Yusuf achieved the top SATs score in his year group and attends one of the country's most prestigious grammar schools. He sat these exact exams very recently, which means his knowledge is current and his ability to relate to younger students is genuine. All sessions take place online, and parents are welcome to observe at any time.</div></div>
+          <div class="faq-item"><div class="faq-q">How do sessions work?<span class="faq-arrow">▾</span></div><div class="faq-a">All sessions are one-to-one and take place online via video call. You'll need a device with a camera and a stable internet connection. Sessions are one hour long and fully focused on your child's needs.</div></div>
+          <div class="faq-item"><div class="faq-q">What age groups do you teach?<span class="faq-arrow">▾</span></div><div class="faq-a">We work with students in Years 4–8, covering KS2 and KS3. This includes 11+ and SATs preparation as well as general subject support.</div></div>
+          <div class="faq-item"><div class="faq-q">What's the difference between the 20-minute call and the first lesson?<span class="faq-arrow">▾</span></div><div class="faq-a">The 20-minute call is just a quick informal chat — no teaching, no pressure. It's a chance to ask questions and decide if Crestline is right for your child. The first lesson is the free assessment session where we actually start working together.</div></div>
+          <div class="faq-item"><div class="faq-q">Do you provide materials?<span class="faq-arrow">▾</span></div><div class="faq-a">Yes — practice questions and structured lesson plans are provided as part of the tutoring. Paid resources and mock tests are also coming soon via our Resources & Mock Tests page.</div></div>
+          <div class="faq-item"><div class="faq-q">Can my child get help in more than one subject?<span class="faq-arrow">▾</span></div><div class="faq-a">Absolutely — just let us know when you register and we can split sessions across subjects.</div></div>
+          <div class="faq-item"><div class="faq-q">What if we need to cancel or reschedule?<span class="faq-arrow">▾</span></div><div class="faq-a">Life happens — just let me know at least 24 hours in advance and we'll reschedule at no cost.</div></div>
+          <div class="faq-item"><div class="faq-q">Are group sessions available?<span class="faq-arrow">▾</span></div><div class="faq-a">Not yet, but they're coming soon! We're planning small-group sessions at a reduced rate for siblings or friends preparing for the same exam. Email us at yusuf-crestlinetutors@outlook.com to register your interest.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONTACT CTA -->
+    <section style="background:#1d4ed8; padding: 3rem 2rem; text-align:center;">
+      <h2 style="font-family:'Fraunces',serif; font-size:30px; font-weight:600; color:#fff; margin-bottom:0.75rem; letter-spacing:-0.5px;">Still have questions?</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.75); margin-bottom:1.5rem;">Drop us an email and we'll get back to you — usually within a few hours.</p>
+      <a href="mailto:yusuf-crestlinetutors@outlook.com?subject=Tutoring Enquiry" class="btn-primary" style="background:#fff; color:#1d4ed8; font-size:15px; padding:13px 28px;">Email us ↗</a>
+      <p style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:1rem;">yusuf-crestlinetutors@outlook.com</p>
+    </section>
+
+  </div><!-- end main page -->
+
+  <!-- ======== RESOURCES PAGE ======== -->
+  <div id="page-resources" class="page">
+    <section class="section-cream" style="min-height:80vh;">
+      <div class="section-inner">
+        <p class="section-eyebrow">Resources & Mock Tests</p>
+        <h2 class="section-title">Paid resources & mock tests</h2>
+        <p class="section-body">We're building a library of high-quality mock tests and revision resources for 11+, SATs, and KS2–KS3 subjects. Everything here is written by Yusuf and designed to reflect exactly what comes up in real exams. Check back soon.</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">📝</div>
+            <div class="resource-title">11+ Mock Tests</div>
+            <div class="resource-desc">Full-length mock papers for verbal reasoning, non-verbal reasoning, maths, and English — written to match the format of real selective school entry tests.</div>
+          </div>
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">✏️</div>
+            <div class="resource-title">SATs Mock Papers</div>
+            <div class="resource-desc">KS2 Maths and English practice papers built around the exact SATs format, with mark schemes and worked answers included.</div>
+          </div>
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">📐</div>
+            <div class="resource-title">Maths Revision Packs</div>
+            <div class="resource-desc">Topic-by-topic revision sheets covering every area of the KS2 and KS3 Maths curriculum, with practice questions and clear explanations.</div>
+          </div>
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">📖</div>
+            <div class="resource-title">English Revision Packs</div>
+            <div class="resource-desc">Comprehension practice, writing frameworks, and grammar drills — everything your child needs to build confidence and consistency in English.</div>
+          </div>
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">🔬</div>
+            <div class="resource-title">Science Revision Packs</div>
+            <div class="resource-desc">KS2 and KS3 Science topic summaries, key concept cards, and exam-style questions across Biology, Chemistry, and Physics.</div>
+          </div>
+          <div class="resource-card">
+            <span class="coming-soon-badge">Coming soon</span>
+            <div class="resource-icon">🇫🇷</div>
+            <div class="resource-title">French Vocabulary Packs</div>
+            <div class="resource-desc">Topic-based vocabulary lists, grammar guides, and practice exercises for KS2 and KS3 French — organised by theme and difficulty level.</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem; text-align:center;">
+          <p style="font-size:14px; color:#777; margin-bottom:1rem;">Want to be notified when resources drop?</p>
+          <a href="mailto:yusuf-crestlinetutors@outlook.com?subject=Resources%20Notification" class="btn-primary" target="_blank">Email us to be notified ↗</a>
+        </div>
+      </div>
+    </section>
+  </div><!-- end resources page -->
+
+  <!-- FOOTER (shared) -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Crestline<span>Tutors</span></div>
+        <p class="footer-desc">Expert one-to-one online tutoring for KS2 and KS3 students across South London and nationwide. First session always free.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Subjects</p>
+        <ul class="footer-links">
+          <li><a href="#subjects" onclick="showPage('main')">Maths</a></li>
+          <li><a href="#subjects" onclick="showPage('main')">English</a></li>
+          <li><a href="#subjects" onclick="showPage('main')">Science</a></li>
+          <li><a href="#subjects" onclick="showPage('main')">French</a></li>
+          <li><a href="#subjects" onclick="showPage('main')">11+ Prep</a></li>
+          <li><a href="#subjects" onclick="showPage('main')">SATs</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:yusuf-crestlinetutors@outlook.com">yusuf-crestlinetutors@outlook.com</a></li>
+          <li><a href="https://www.fiverr.com" target="_blank">Fiverr</a></li>
+          <li><a href="https://www.superprof.co.uk" target="_blank">Superprof</a></li>
+          <li><a href="https://www.mypocketskill.com" target="_blank">MyPocketSkill</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Crestline Tutors · South London · Online sessions available nationwide</div>
+  </footer>
+
+  <script>
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('faqList').addEventListener('click', function(e) {
+      const item = e.target.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  </script>
+
+</body>
+</html>
